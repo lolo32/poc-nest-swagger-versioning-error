@@ -12,6 +12,7 @@ describe('AppController (e2e)', () => {
     }).compile();
 
     app = moduleFixture.createNestApplication();
+    app.enableVersioning();
     await app.init();
   });
 
@@ -20,5 +21,18 @@ describe('AppController (e2e)', () => {
       .get('/')
       .expect(200)
       .expect('Hello World!');
+  });
+
+  it('/v1/test (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/v1/test')
+      .expect(200)
+      .expect('This should works... maybe');
+  });
+
+  it('/test (GET) should not work', () => {
+    return request(app.getHttpServer())
+      .get('/test')
+      .expect(404);
   });
 });
