@@ -35,4 +35,17 @@ describe('AppController (e2e)', () => {
       .get('/test')
       .expect(404);
   });
+
+  it('/v1/versions (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/v1/versions')
+      .expect(200)
+      .expect('Hello world!');
+  });
+
+  it('/versions (GET) should not work', () => {
+    return request(app.getHttpServer())
+      .get('/versions')
+      .expect(404);
+  });
 });
