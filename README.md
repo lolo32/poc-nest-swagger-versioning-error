@@ -1,10 +1,6 @@
-# Simple POC to illustrate non-functioning swagger versioning generation
+# Simple POC to illustrate non-functioning header versioning generation with Fastify
 
-This have 2 route:
-- `GET /` that works
-- `GET /v1/test` that works calling it directly in browser, curl, ..., but that appears as `/test` in swagger (`/api`)
-  
-  I made the route version using internal nest versioning.
+The server refuse to start, even if it indicates ` Nest application successfully started`
 
 ---
 
