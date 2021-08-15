@@ -16,7 +16,9 @@ async function bootstrap() {
     key: 'v=',
   });
 
-  await app.listen(4000);
-  console.log(`Running at ${await app.getUrl()}`);
+  await app.listen(3000, () => {
+    console.log('Displayed: Running at http://127.0.0.1:3000/');
+  });
+  console.log(`Not displayed: Running at ${await app.getUrl()}`);
 }
 bootstrap();
