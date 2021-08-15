@@ -1,18 +1,16 @@
-import { Controller, Get, Version } from "@nestjs/common";
-import { AppService } from './app.service';
+import { Controller, Get, Version } from '@nestjs/common';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-
   @Get()
+  @Version('1')
   getHello(): string {
-    return this.appService.getHello();
+    return 'Hello world from v1!';
   }
 
-  @Get('test')
-  @Version('1')
+  @Get()
+  @Version('2')
   getTest(): string {
-    return 'This should works... maybe';
+    return 'Hello world from v2!';
   }
 }
